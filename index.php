@@ -166,8 +166,7 @@
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Dama</a></h4>
-									<h4 class="panel-title"><a href="#">Caballero</a></h4>
+									<h4 class="panel-title"><a href="#">Damas</a></h4><h4 class="panel-title"><a href="#">Caballeros</a> </h4>
 								</div>
 							</div>
 						</div><!--/category-products-->
@@ -183,35 +182,34 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Catálogo de Productos</h2>
 						<?php
-                        for ($i=0; $i< $iProductos;$i++)    
+                        for ($i=0; $i< $iProductos;$i++){      
                         ?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
 											<?php 
-											$img=$BDProductos[0][$i];
+											$img = $BDProductos[0][$i];
 											?>
-											<img src="images/home/<?php echo $img; 
-											?>.jpg" alt="" whith="210" height="180"/>
+											<img src="images/home/<?php echo $img;?>.jpg" alt="" width="210" height="180"/>
+											<h2>$56</h2>
+											<?php echo "$ " . $BDProductos[2][$i]; ?>
 											<h2>
-												<?php echo "$" . $BDProductos[2][$i];
-												?>
-											<h2>
-											<p><?php echo "$" . $BDProductos[1][$i]; ?>
+											<p><?php echo $BDProductos[1][$i];?>
+											</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2><?php echo "$ " . $BDProductos[2][$i];?></h2>
-												<p><? echo "$ " . $BDProductos[1][$i];?><php>
+												<h2><?php echo "$ " . $BDProductos[2][$i]; ?></h2>
+												<p><?php echo $BDProductos[1][$i]; ?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 											</div>
 										</div>
 								</div>								
 							</div>
 						</div>
-						<?php} ?>
+						<?php } ?>
 					</div><!--features_items-->
 					
 					
