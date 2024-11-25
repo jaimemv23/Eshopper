@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+  $producto = $_GET['producto'];
+  $precio = $_GET['precio'];
+
+  $file = @fopen("carritocompras.txt", "a"); 
+  fwrite($file, "$producto,$precio".PHP_EOL);
+  fclose($file); 
+?>
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -128,11 +136,11 @@
 								<a href=""><img src="images/cart/one.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
+								<h4><a href=""><?producto; ?></a></h4>
 								<p>Web ID: 1089772</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p><?php echo $precio; ?></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -142,7 +150,7 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price"><?php echo $precio;?></p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
