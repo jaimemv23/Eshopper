@@ -204,22 +204,15 @@
 											$precioB=$BDProductos[$n+2];
 											?>
 											<img src="images/home/<?php echo $img;?>.jpg" alt="" width="210" height="180" alt=""/>
-											<h2>
-											<?php echo $productoB; ?>
-											</h2>
-											<p><?php echo $precioB;?>
-											</p>
-											<a href="“cart.php?producto=<?php echo $productoB;?>&precio=<?php echo $precioB;?>“
-
- " class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+											<h2><?php echo $productoB; ?></h2>
+											<p><?php echo $precioB;?></p>
+											<a href="cart.php?producto=<?php echo $productoB; ?>&precio=<?php echo $precioB;?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2><?php echo $precioB; ?></h2>
 												<p><?php echo $productoB; ?></p>
-												<a href="“cart.php?producto=<?php echo $productoB;?>&precio=<?php echo $precioB;?>“
-
- " class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+												<a href="cart.php?producto=<?php echo $productoB; ?>&precio=<?php echo $precioB;?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 											</div>
 										</div>
 								</div>								
