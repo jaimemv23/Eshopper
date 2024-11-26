@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <?php
-  $producto = $_GET['producto'];
-  $precio = $_GET['precio'];
-
-  $file = @fopen("carritocompras.txt", "a"); 
-  fwrite($file, "$producto,$precio".PHP_EOL);
-  fclose($file); 
+   if (isset($_GET['producto'])){
+      $producto = $_GET['producto'];
+      $precio = $_GET['precio']; 
+      $file = @fopen("carritocompras.txt", "a"); 
+      fwrite($file, "$producto,$precio".PHP_EOL);
+      fclose($file); 
+   } else {
+      $producto = ""; 
+      $precio = "";
+   } 
 ?>
 <html lang="es">
 <head>
@@ -131,16 +135,24 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php 
+  if(file_exists('carritocompras.txt')){
+    $content = trim(file_get_contents('carritocompras.txt'), PHP_EOL);
+    $lineas = explode(PHP_EOL, $content);
+    $total=0;
+    foreach($lineas as $linea){
+      list($productoE, $precioE) = explode(',', $linea);
+?>
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="images/cart/one.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href=""><?producto; ?></a></h4>
+								<h4><a href=""><?php echo "$" . $productoE; ?></a></h4>
 								<p>Web ID: 1089772</p>
 							</td>
 							<td class="cart_price">
-								<p><?php echo $precio; ?></p>
+								<p><?php echo $precioE; ?></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -150,12 +162,17 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><?php echo $precio;?></p>
+								<p class="cart_total_price"><?php echo "$" . $precio;?></p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
+						<?php
+						$total=$total+$precioE;
+					} //Cierra el ciclo For
+				}  // Cierra el ciclo If
+				?>
 					</tbody>
 				</table>
 			</div>
@@ -171,13 +188,13 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Sub Total del carrito<span>$59</span></li>
-							<li>Impuestos <span>$2</span></li>
+							<li>Sub Total del carrito<span><?php echo "$" . $total; ?></span></li>
+							<li>Impuestos <span><?php echo "$" . $total*.16; ?></span></li>
 							<li>Precio de envio<span>Free</span></li>
-							<li>Total <span>$61</span></li>
+							<li>Total <span><?php echo "$" . $total+($total*.16);?></span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Actualizar</a>
-							<a class="btn btn-default check_out" href="">Checar pedido</a>
+							<a class="btn btn-default check_out" href="">Vaciar Carrito</a>
 					</div>
 				</div>
 			</div>
