@@ -1,0 +1,4 @@
+ Blusa,100
+ Lentes,380
+ Playera Azul,250
+ Playera Azul,250
