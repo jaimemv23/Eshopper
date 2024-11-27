@@ -162,7 +162,7 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><?php echo "$" . $precio;?></p>
+								<p class="cart_total_price"><?php echo "$" . $precioE;?></p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -194,7 +194,7 @@
 							<li>Total <span><?php echo "$" . $total+($total*.16);?></span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Actualizar</a>
-							<a class="btn btn-default check_out" href="">Vaciar Carrito</a>
+							<a class="btn btn-default check_out" href="vaciarcarrito.php" target="_blank">Vaciar Carrito</a>
 					</div>
 				</div>
 			</div>
